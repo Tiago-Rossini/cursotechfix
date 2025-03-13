@@ -65,20 +65,28 @@
     <!-- Cabeçalho Hero -->
     <header class="hero-bg py-20 px-6 text-center">
         <div class="max-w-4xl mx-auto">
-            <h1 class="text-5xl font-bold mb-6 animate-fade-in-down">
-                <img src="" alt="">
-                <span class="text-razer">Domine o Hardware</span><br>
-                <span class="text-xl block mt-4">Curso Profissionalizante com Certificação</span>
-            </h1>
+            <!-- Container para logo e título -->
+            <div class="flex items-center justify-center space-x-6 mb-6">
+                <!-- Logo à esquerda do título -->
+                <img src="logo_techfix2.png" alt="Logo TechFix" class="w-auto h-64 hover:scale-110 transform transition-all duration-300">
+                
+                <!-- Título -->
+                <h1 class="text-5xl font-bold animate-fade-in-down">
+                    <span class="text-razer">Domine o Hardware</span><br>
+                    <span class="text-xl block mt-4">Curso Profissionalizante com Certificação</span>
+                </h1>
+            </div>
             
+            <!-- Botões -->
             <div class="flex flex-wrap justify-center gap-4 mt-8">
-                <a href="#inscricao" class="bg-razer hover:bg-razer-green px-8 py-3 rounded-full font-bold transform duration-500 ease-in-out transition-all hover:scale-105">
+                <a href="#curso" class="bg-razer hover:bg-razer-green px-8 py-3 rounded-full font-bold transform duration-500 ease-in-out transition-all hover:scale-105">
                     <i class="fas fa-tools mr-2"></i>Quero me Inscrever
                 </a>
                 <a href="#detalhes" class="border-2 border-razer text-razer hover:bg-razer hover:text-white px-8 py-3 rounded-full transform transition-all">
                     <i class="fas fa-info-circle mr-2"></i>Saiba Mais
                 </a>
             </div>
+        </div>
     </header>
 
     <!-- Destaques -->
@@ -209,14 +217,12 @@
                     <li><i class="fas fa-check text-razer mr-2"></i>Acesso vitalício ao conteúdo</li>
                     <li><i class="fas fa-check text-razer mr-2"></i>Certificado físico</li>
                 </ul>
-                <a href="#inscricao" class="bg-razer hover:bg-razer-green px-8 py-3 duration-500 ease-in-out rounded-full font-bold inline-block">
-                    Garantir Minha Vaga
-                </a>
+                
             </div>
         </div>
     </section>
 
-    <section class="container mx-auto px-6 py-16">
+    <section class="container mx-auto px-6 py-16 curso" id="curso">
         <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-xl shadow-xl">
             <h2 class="text-3xl font-bold text-center mb-8 text-razer">Inscreva-se Agora</h2>
             <form class="space-y-6" id="formInscricao">
@@ -355,6 +361,30 @@
   variants: {},
   plugins: [],
 };
+</script>
+
+<script>
+    // Scroll suave para âncoras
+    $(document).ready(function() {
+        // Função para scroll suave
+        function smoothScroll(target) {
+            $('html, body').animate({
+                scrollTop: $(target).offset().top - 80 // Ajuste de 80px para o header fixo
+            }, 800); // Duração da animação em milissegundos
+        }
+
+        // Scroll para "Quero me Inscrever"
+        $('a[href="#curso"]').on('click', function(e) {
+            e.preventDefault(); // Evita o comportamento padrão do link
+            smoothScroll('#curso'); // Rola até a seção de inscrição
+        });
+
+        // Scroll para "Saiba Mais"
+        $('a[href="#detalhes"]').on('click', function(e) {
+            e.preventDefault(); // Evita o comportamento padrão do link
+            smoothScroll('#detalhes'); // Rola até a seção de detalhes
+        });
+    });
 </script>
 </body>
 </html> 
